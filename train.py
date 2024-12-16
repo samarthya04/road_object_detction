@@ -120,6 +120,10 @@ def main():
         ]
     )
     
+    # Save the full model
+    model.save('object_detection_model')  # Saves as SavedModel format
+    model.save('object_detection_model.h5')  # Saves in Keras H5 format
+    
     # Convert to TFLite
     converter = tf.lite.TFLiteConverter.from_keras_model(model)
     tflite_model = converter.convert()
